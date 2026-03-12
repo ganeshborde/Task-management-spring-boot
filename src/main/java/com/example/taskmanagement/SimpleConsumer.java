@@ -19,6 +19,14 @@ public class SimpleConsumer {
 
 	        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 	        consumer.subscribe(Collections.singletonList("task-events"));
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
 
 	        while(true) {
 	            ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
