@@ -16,7 +16,9 @@ pipeline {
         stage('Clean Old Docker Images') {
             steps {
                 bat '''
-                for /f "tokens=*" %%i in ('docker images -q taskmanagement-demo') do docker rmi -f %%i
+                docker images -q taskmanagement-demo > images.txt
+                for /f %%i in (images.txt) do docker rmi -f %%i
+                del images.txt
                 '''
             }
         }
